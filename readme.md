@@ -1,1 +1,1 @@
-## this the way of using all apps in a app folder
+## This the way of using all apps in a app folder
