@@ -1,1 +1,1 @@
-## THis is all files From my first django practicise
+## this the way of using all apps in a app folder
