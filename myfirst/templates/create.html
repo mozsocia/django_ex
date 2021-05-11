@@ -1,0 +1,83 @@
+{% extends 'layouts/base_layout.html' %} {% load static %} {% block content %}
+
+<!-- Jumbotron -->
+<div class="jumbotron text-center blue-grey lighten-5">
+  <!-- Title -->
+  <h2 class="card-title h2">Create a new post</h2>
+
+  <!-- Subtitle -->
+  <p class="indigo-text my-4 font-weight-bold">
+    Powerful and free Material Design UI KIT
+  </p>
+</div>
+<!-- Jumbotron -->
+
+<section class="mb-4">
+  <div class="container">
+    {% if messages %}
+    {% for msg in messages %}
+
+    <div class="alert alert-{{msg.tags}}">{{ msg }}</div>
+
+    {% endfor %}
+    {% endif %}
+
+    <!-- Default form -->
+    <form class="border border-light p-5 purple-text" action="{% url 'post_create' %}" method="POST">
+      {% csrf_token %}
+
+      {% comment %} {% for field in form %}
+      <div class="invalid-feedback" style="display: block">
+        {{ field.errors }}
+      </div>
+      {% endfor %} {% endcomment %}
+      <!-- Email -->
+
+
+      <p class="h5 mb-4">Post details</p>
+
+      <div class="md-form mt-4">
+
+        <input type="text" class="form-control" id="id_title" name="title" value="{{form.title.value|default:''}}" />
+        <label for="id_title">Title</label>
+        <div class="invalid-feedback" style="display: block">
+          {{ form.title.errors }}
+        </div>
+      </div>
+
+      <div class="md-form mt-4">
+
+        <input type="text" class="form-control md-textarea" id="id_body" name="body"
+          value="{{form.body.value|default:''}}" />
+        <label for="id_body">Body</label>
+        <div class="invalid-feedback" style="display: block">
+          {{ form.body.errors }}
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+      {% comment %}
+      <input type="text" id="title" name="title" class="form-control mb-4" placeholder="Title"
+        value="{{form.title.value}}" />
+      {% endcomment %}
+
+      <!-- Password -->
+      {% comment %}
+      <input type="textarea" id="body" name="body" class="form-control mb-4" placeholder="Body"
+        value="{{form.body.value}}" />
+      {% endcomment %} {% comment %} {{form.as_p}} {% endcomment %}
+
+      <!-- Sign in button -->
+      <button class="btn btn-purple my-4" type="submit">Post</button>
+    </form>
+    <!-- Default form login -->
+  </div>
+</section>
+
+{% endblock %}

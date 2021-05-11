@@ -1,0 +1,34 @@
+{% extends 'layouts/base_layout.html' %} {% load static %} {% block content %}
+
+<!-- Jumbotron -->
+<div class="jumbotron text-center blue-grey lighten-5">
+  <!-- Title -->
+  <h2 class="card-title h2">Single post Details</h2>
+
+  <!-- Subtitle -->
+  <p class="indigo-text my-4 font-weight-bold">
+    Powerful and free Material Design UI KIT
+  </p>
+</div>
+<!-- Jumbotron -->
+
+<section>
+  <div class="container">
+    <!-- Card -->
+    <div class="card mb-4">
+      <!-- Card content -->
+      <div class="card-body">
+        <!-- Title -->
+        <h4 class="card-title">{{post.title}}</h4>
+        <!-- Text -->
+        <p class="card-text">{{post.body}}</p>
+        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+        <button type="button" class="btn btn-purple btn-md">Read more</button>
+      </div>
+      <!-- Card content -->
+    </div>
+    <!-- Card -->
+  </div>
+</section>
+
+{% endblock %}
