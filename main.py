@@ -1,9 +1,9 @@
 # from django.contrib import admin
-
 from django.http.response import HttpResponse
 from django.urls import path
 from django.http import JsonResponse
 from django.db import models
+from django.forms.models import model_to_dict
 
 
 class Posts(models.Model):
@@ -15,10 +15,16 @@ class Posts(models.Model):
 all necessary fucntions for view is below'''
 
 
-def index_single_obj(request):
-    obj = Posts.objects.filter(pk=10).values()
-    data = list(obj)
+def index_single_obj2(request):
+    obj = Posts.objects.filter(pk=1).values()
+    data = obj[0]
     return JsonResponse(data, safe=False)
+
+
+def index_single_obj(request):
+    obj = Posts.objects.get(pk=1)
+    data1 = model_to_dict(obj)
+    return JsonResponse(data1)
 
 #path('home/', index)
 
@@ -32,5 +38,6 @@ def index(request):
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('home/', index),
-    path('sin/', index_single_obj)
+    path('sin/', index_single_obj),
+    path('sin2/', index_single_obj2)
 ]
