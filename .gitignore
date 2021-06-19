@@ -1,0 +1,7 @@
+.venv/
+my_project.egg-info/
+*.egg-info
+__pycache__
+*.pyc
+.vscode
+.favorites.json

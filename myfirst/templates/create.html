@@ -1,0 +1,64 @@
+{% extends 'layouts/base_layout.html' %}
+
+{% load widget_tweaks %}
+
+{% load static %}
+
+{% block content %}
+
+
+<section class="mb-4">
+  <div class="container">
+    {% if messages %}
+    {% for msg in messages %}
+
+    <div class="alert alert-{{msg.tags}}">{{ msg }}</div>
+
+    {% endfor %}
+    {% endif %}
+
+
+    {% comment %} {% for field in form %}
+    <div class="invalid-feedback" style="display: block">
+      {{ field.errors }}
+    </div>
+    {% endfor %} {% endcomment %}
+
+    <hr>
+
+    <h2>Create New Post</h2>
+
+    <!-- Default form -->
+    <form class="border border-light p-5 purple-text" action="{% url 'post_create' %}" method="POST">
+      {% csrf_token %}
+      <p></p>
+
+      <p></p>
+      <!-- way to use django form -->
+      <div class="form-group mt-4">
+        {{form.title.label_tag }}
+        {{ form.title|add_class:"form-control" }}
+        <div class="invalid-feedback" style="display:block">
+          {{ form.title.errors }}
+        </div>
+      </div>
+
+      <!-- way to input with html form -->
+      <div class="form-group mt-4">
+        <label for="id_body">Body</label>
+        <input type="text" class="form-control" id="id_body" name="body" value="{{form.body.value|default:''}}">
+        <div class="invalid-feedback" style="display:block">
+          {{ form.body.errors }}
+        </div>
+      </div>
+
+
+
+      <!-- Sign in button -->
+      <button class="btn btn-purple my-4" type="submit">Post</button>
+    </form>
+
+  </div>
+</section>
+
+{% endblock %}

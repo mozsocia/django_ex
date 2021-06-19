@@ -1,0 +1,78 @@
+{% extends 'layouts/base_layout.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+
+
+{% block content %}
+
+<hr>
+
+<section class="mb-4">
+  <div class="container">
+    {% if messages %}
+    {% for msg in messages %}
+    <div class="alert alert-success">{{ msg }}</div>
+
+    {% endfor %}
+    {% endif %}
+
+
+    <!-- Default form login -->
+    <form class="border border-light p-5" action="" method="POST">
+      {% csrf_token %}
+
+      <p class="h5 mb-4">Post details</p>
+
+
+      <div class="form-group mt-4">
+        {{form.title.label_tag }}
+        {{ form.title|add_class:"form-control" }}
+        <div class="invalid-feedback" style="display:block">
+          {{ form.title.errors }}
+        </div>
+      </div>
+
+      <div class="form-group mt-4">
+        <label for="id_body">Body</label>
+        <input type="text" class="form-control" id="id_body" name="body" value="{{form.body.value}}" />
+        <div class="invalid-feedback" style="display: block">
+          {{ form.body.errors }}
+        </div>
+      </div>
+
+      <!-- Sign in button -->
+      <button class="btn btn-purple my-4" type="submit">UPDATE</button>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-red" data-toggle="modal" data-target="#basicExampleModal">
+        DELETE
+      </button>
+
+    </form>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-body">
+            <h3>ARE YOU SURE ???</h3>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <a class="btn btn-red" href="{% url 'post_delete' post_id=pk_id %}">Delete</a>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Default form login -->
+  </div>
+</section>
+
+{% endblock %}

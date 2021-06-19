@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Start your project here-->
+  <div class="container">
+
+    {% include 'layouts/header.html' %}
+
+
+
+    {% block content %} {% endblock content %}
+
+  </div>
+
+
+  <!-- End your project here-->
+
+  <script src="{% static 'js/jquery.min.js' %}">
+  </script>
+  <script src="{% static 'js/popper.min.js' %}">
+  </script>
+
+  <script src="{% static 'js/bootstrap.min.js' %}">
+  </script>
+  <!-- MDB core JavaScript -->
+  <script src="{% static 'css/mdb.min.js' %}"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascrip"></script>
+
+</body>
+
+</html>
