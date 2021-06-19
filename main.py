@@ -37,20 +37,6 @@ than "timezone.now" will output localtime
 all necessary fucntions for view is below'''
 
 
-def index_single_obj(request):
-    pass
-    # obj = Employee.objects.get(name='Simpson').department
-    # data1 = model_to_dict(obj)
-    # return JsonResponse(data1)
-
-
-def multi(request):
-    pass
-    # new = Employee.objects.get(name='Simpson').department
-    # obj = Employee.objects.filter(department=new).values()
-    # data = list(obj)
-    # return JsonResponse(data, safe=False)
-
 
 def create(request):
     Person.objects.create(name="mozdatwo", age=12)
