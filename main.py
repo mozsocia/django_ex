@@ -22,17 +22,17 @@ def index_single_obj2(request):
 
 
 def index_single_obj(request):
-    obj = Posts.objects.get(pk=1)
-    data1 = model_to_dict(obj)
-    return JsonResponse(data1)
+    new = Posts.objects.get(pk=1)
+    obj = new
+    return JsonResponse(model_to_dict(obj))
 
 #path('home/', index)
 
 
 def index(request):
-    obj = Posts.objects.all().values()
-    data = list(obj)
-    return JsonResponse(data, safe=False)
+    new = Posts.objects.all().values()
+    obj = new
+    return JsonResponse(list(obj.values()), safe=False)
 
 
 urlpatterns = [
