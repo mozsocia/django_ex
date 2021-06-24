@@ -15,6 +15,8 @@ STATICFILES_DIRS = [
 ```
 
 
+https://stackoverflow.com/questions/5517950/django-media-url-and-media-root
+
 ```
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
