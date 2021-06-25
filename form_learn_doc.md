@@ -17,3 +17,6 @@ https://docs.djangoproject.com/en/3.2/ref/forms/widgets/
 ### ModelChoiceField
 
 https://docs.djangoproject.com/en/3.2/ref/forms/fields/#fields-which-handle-relationships
+
+
+https://simpleisbetterthancomplex.com/questions/2017/03/22/how-to-dynamically-filter-modelchoices-queryset-in-a-modelform.html
