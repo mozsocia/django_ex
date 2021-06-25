@@ -12,3 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/forms/fields/
 
 ### form widgets
 https://docs.djangoproject.com/en/3.2/ref/forms/widgets/
+
+
+### ModelChoiceField
+
+https://docs.djangoproject.com/en/3.2/ref/forms/fields/#fields-which-handle-relationships
