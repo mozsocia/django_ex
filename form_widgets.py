@@ -58,9 +58,7 @@ class RawProductForm(forms.Form):
 class Choice(models.Model):
     choice_text = models.CharField(max_length=100)
     aaa = models.CharField(max_length=200)
-    bbb = models.CharField(max_length=200)
-    ccc = models.CharField(max_length=200)
-    ddd = models.CharField(max_length=200)
+ 
     def __str__(self):
         return self.choice_text
 
@@ -68,7 +66,6 @@ class Choice(models.Model):
 
 class Contatto(models.Model):
     contatto_choice =  models.ForeignKey(Choice, on_delete=models.PROTECT)
-    phone_number = models.CharField(max_length=12)
     email = models.CharField(max_length=100)
     name = models.CharField(max_length=250)
     def __str__(self):
@@ -79,7 +76,7 @@ class ContactForm(forms.ModelForm):
     contatto_choice = forms.ModelChoiceField(queryset=Choice.objects.filter(id__in=[1, 3, 4]),widget=forms.RadioSelect)
     class Meta:
         model = Contatto
-        fields = ['contatto_choice', 'phone_number','email','name']
+        fields = ['contatto_choice','email','name']
         
         
         
@@ -101,10 +98,10 @@ def form_fn2(request):
     return render(request, 'index.html', contxt)
 
 def create_fn(request):
-    Choice.objects.create(choice_text="dfskjadskf one" , aaa="aaa one", bbb="bbb one" , ccc="cccc one", ddd="ddd one")
-    Choice.objects.create(choice_text="dfskjadskf two" , aaa="aaa two", bbb="bbb two" , ccc="cccc two", ddd="ddd two")
-    Choice.objects.create(choice_text="dfskjadskf three" , aaa="aaa three", bbb="bbb three" , ccc="cccc three", ddd="ddd three")
-    Choice.objects.create(choice_text="dfskjadskf four" , aaa="aaa four", bbb="bbb four" , ccc="cccc four", ddd="ddd four")
+    Choice.objects.create(choice_text="dfskjadskf one" , aaa="aaa one", bbb="bbb one" )
+    Choice.objects.create(choice_text="dfskjadskf two" , aaa="aaa two", bbb="bbb two" )
+    Choice.objects.create(choice_text="dfskjadskf three" , aaa="aaa three", bbb="bbb three" )
+    Choice.objects.create(choice_text="dfskjadskf four" , aaa="aaa four", bbb="bbb four" )
     
     return HttpResponse("done")
 
