@@ -1,6 +1,5 @@
-from django.forms.models import model_to_dict
 from django.urls import path
-from django.http.response import HttpResponse, JsonResponse
+from django.http.response import HttpResponse
 from django.shortcuts import render,redirect
 from django.db import models
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
