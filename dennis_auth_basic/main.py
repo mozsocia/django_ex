@@ -15,16 +15,16 @@ class CreateUserForm(UserCreationForm):
         fields =['username', 'email', 'password1', 'password2']
     
 
-@login_required(login_url='login')
+@login_required(login_url='login_ep')
 def home(request):
     print(request.user.is_authenticated)
     return render(request, 'home.html', context={})
 
-@login_required(login_url='login')
+@login_required(login_url='login_ep')
 def index(request):
     return render(request, 'index.html', context={})
 
-@login_required(login_url='login')
+@login_required(login_url='login_ep')
 def product(request):    
     return render(request, 'product.html', context={})
 
@@ -32,7 +32,7 @@ def product(request):
 def registerPage(request):
     
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('home_ep')
     
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
@@ -40,7 +40,7 @@ def registerPage(request):
             form.save()
             user = form.cleaned_data.get('username')
             messages.success(request,"account created for " + user )
-            return redirect('register')
+            return redirect('login_ep')
     else: 
         form = CreateUserForm()    
               
@@ -51,7 +51,7 @@ def registerPage(request):
 def loginPage(request):
     
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('home_ep')
     
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -61,11 +61,11 @@ def loginPage(request):
         
         if user is None:
             messages.error(request,"invalid username or password")
-            return redirect('login')
+            return redirect('login_ep')
         else:            
             login(request, user)            
             messages.success(request,"account logged in for " + user.get_username())
-            return redirect('home')
+            return redirect('home_ep')
         
         
     
@@ -75,14 +75,14 @@ def loginPage(request):
 
 def logoutPage(request):
     logout(request)
-    return redirect('login')
+    return redirect('login_ep')
 
 urlpatterns = [
-    path('home/', home, name='home'),
+    path('home/', home, name='home_ep'),
     path('index/', index),
     path('product/', product),
-    path('register/', registerPage, name = 'register'),
-    path('login/', loginPage, name= "login"),
-    path('logout/', logoutPage, name= "logout"),
+    path('register/', registerPage, name = 'register_ep'),
+    path('login/', loginPage, name= "login_ep"),
+    path('logout/', logoutPage, name= "logout_ep"),
     
 ]
