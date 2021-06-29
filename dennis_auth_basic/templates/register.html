@@ -1,0 +1,13 @@
+<h1>This is register page</h1>
+
+{% for msg in messages %}
+    <p>{{msg}}</p>
+{% endfor %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p }}
+    <input type="submit" value="Create Account">
+</form>
+
+<button><a href="{% url 'login' %}">Have an account? login here</a></button>
