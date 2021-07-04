@@ -1,0 +1,12 @@
+{% if country_obj %}
+    <h3>Enter city for {{ country_obj.name }}</h3>
+
+{% endif %}
+
+<form method="POST" enctype="multipart/form-data">
+
+    {{ formset.management_data }}
+    {% csrf_token %}
+    {{ formset.as_p }}
+    <input type="submit" value="Submit">
+</form>
