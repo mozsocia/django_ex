@@ -1,0 +1,30 @@
+<h2>Profile info </h2>
+uesr : {{request.user.username}} <br>
+
+{% if is_customer %}
+customer : {{request.user.customer.name}} <br>
+
+image : <img src="{{request.user.customer.profile_pic.url}}"
+             style="width:200px;">
+
+
+
+
+
+<form action="" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="submit">
+
+</form>
+{% else %}
+<p>your do not have customer information</p>
+{% endif %}
+<hr>
+<h2>Your orders</h2>
+
+{% for item in orders %}
+
+    <p>{{ forloop.counter }}. Product name : {{item.product.name}} , price :{{item.product.price}}</p>
+
+{% endfor %}
