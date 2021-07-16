@@ -43,5 +43,19 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 
-
 #### for sending image in form always use :- enctype = "multipart/form-data"    in form
+
+--------------------
+
+
+### for showing all fields in admin area
+
+```
+from django.contrib import admin
+from app.models import *
+
+@admin.register(Order,Customer,Product)
+class UniversalAdmin(admin.ModelAdmin):
+    def get_list_display(self, request):
+        return [field.name for field in self.model._meta.concrete_fields]
+```
