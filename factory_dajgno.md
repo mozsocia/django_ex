@@ -49,6 +49,8 @@ print(faker.words(nb=3, ext_word_list=None, unique=False))
 
 
 ```
+
+```
 class UserFactory(factory.django.DjangoModelFactory):
 	class Meta:
 		model = Person 
@@ -57,12 +59,12 @@ class UserFactory(factory.django.DjangoModelFactory):
 	name = faker.name()
 	age = faker.random_int(min=10, max=40)
  
- 
+ ```
 for i in range(10):
 	print(UserFactory(name= faker.name(), age= faker.random_int(min=10, max=40)))
 	
 	
-	
+```	
 class ProductFactory(factory.django.DjangoModelFactory):
 	class Meta:
 		model = Product
@@ -72,7 +74,7 @@ class ProductFactory(factory.django.DjangoModelFactory):
 	price = faker.random_int(min=10, max=40)
 	person = factory.SubFactory(UserFactory)
 
-
+```
 
 		
 for i in range(3):
