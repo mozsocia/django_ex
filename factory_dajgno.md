@@ -12,25 +12,43 @@ print(faker.last_name())
 print(faker.name())
 
 print(faker.email())
-print(faker.word())
-print(faker.text())
-print(faker.sentence())
 
-print(vars(factory.Faker('name')))
-print()
+```
+print(faker.word())
+// future
+
+print(faker.text())
+//  Evening research employee share. Today president age will study condition wait.
+Mean small success. Baby design manage low notice but add. Church develop become.
+Project sign that.
+
+
+print(faker.sentence())
+// Step professor however a forget deal capital.
+
+
 
 print(faker.paragraph(nb_sentences=5))
+//She street case eight avoid possible first pay. Traditional compare produce coach position. Organization court result wear not general. Wall responsibility shoulder itself toward even second. Attorney thousand over. Speak take still parent say west.
 
 print(faker.sentence(nb_words=6))
+// Notice conference by war least win.
 
 
 print(faker.sentences(nb=3))
 
-print(faker.text(max_nb_chars=200))
+// ['Ground read water someone already film.', 'Without full class rather while.', 'Store paper trouble fire cell building fear.']
+
+print(faker.text(max_nb_chars=25))
+
+// Boy them two kid.
+
 
 print(faker.words(nb=3, ext_word_list=None, unique=False))
+// Boy them two kid.
 
 
+```
 class UserFactory(factory.django.DjangoModelFactory):
 	class Meta:
 		model = Person 
